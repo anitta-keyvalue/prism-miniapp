@@ -1,0 +1,32 @@
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+
+  :global(.map-loading) {
+    padding-bottom: 160rpx;
+  }
+
+  :global(.map-empty) {
+    padding-bottom: 160rpx;
+  }
+}
+
+.content {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  flex: 1;
+}
+
+.space-between {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: center;
+}
