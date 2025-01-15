@@ -48,6 +48,7 @@ export const useDisturbTime = () => {
 
   const updateDpValue = (value: typeof defaultDoNotDisturbData) => {
     const data = encodeDoNotDisturb0x40(value);
+    console.log('updateDpValue', data);
     sendDP(disturbTimeSetCode, data);
   };
 
