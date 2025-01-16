@@ -22,6 +22,10 @@ const DoNotDisturb = () => {
       ...disturbTimeSetData,
       enable: false,
     });
+    updateDpValue({
+      ...disturbTimeSetData,
+      enable: false,
+    });
   }, []);
   //   const { enable, startHour, startMinute, endHour, endMinute } = disturbTimeSetData;
   return (
@@ -43,10 +47,10 @@ const DoNotDisturb = () => {
             }}
           />
           <View className={styles.spaceLine} />
-          <View className={styles.cellGroup}>
+          <View>
             <CellGroup inset>
               <Cell
-                className={styles.header}
+                className={styles.cellGroup}
                 title={Strings.getLang('dsc_do_not_disturb_start_time')}
                 label="start time"
                 isLink

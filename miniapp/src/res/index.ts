@@ -18,6 +18,8 @@ import floorMaterialCeramic from './ceramic.png';
 import floorMaterialWoodHorizontal from './wood.png';
 import volumeMax from './volume-max.png';
 import volumeMin from './volume-x.png';
+import settings from './settings.png';
+import rightArrow from './rightArrow.png';
 
 export default {
   inputClose,
@@ -40,4 +42,6 @@ export default {
   floorMaterialWoodHorizontal,
   volumeMax,
   volumeMin,
+  settings,
+  rightArrow,
 };
