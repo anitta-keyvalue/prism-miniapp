@@ -16,6 +16,7 @@ import floorMaterial from './mapEdit.png';
 import floorMaterialDefault from './default.png';
 import floorMaterialCeramic from './ceramic.png';
 import floorMaterialWoodHorizontal from './wood.png';
+import playWhite from './iconPlayWhite.png';
 
 export default {
   inputClose,
@@ -36,4 +37,5 @@ export default {
   floorMaterialDefault,
   floorMaterialCeramic,
   floorMaterialWoodHorizontal,
+  playWhite,
 };

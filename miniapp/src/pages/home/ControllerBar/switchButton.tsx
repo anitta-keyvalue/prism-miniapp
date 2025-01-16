@@ -32,7 +32,7 @@ import {
 import { ENativeMapStatusEnum } from '@ray-js/robot-sdk-types';
 import { GridItem } from '@ray-js/smart-ui';
 import PauseIcon from '@tuya-miniapp/icons/dist/svg/Pause';
-import PlayIcon from '@tuya-miniapp/icons/dist/svg/Play';
+import Res from '@/res';
 import { once } from 'lodash-es';
 import React, { FC } from 'react';
 import { useSelector } from 'react-redux';
@@ -250,8 +250,8 @@ const SwitchButton: FC<Props> = props => {
           : Strings.getLang('dsc_end_clean')
       }
       onClick={handleSwitchStart}
-      className={styles.cleanModeItem}
-      icon={judgeRobotStatus() === 'paused' ? PauseIcon : PlayIcon}
+      className={styles.playPauseItem}
+      icon={judgeRobotStatus() === 'paused' ? PauseIcon : Res.playWhite}
     />
   );
 };

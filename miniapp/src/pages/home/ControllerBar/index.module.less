@@ -52,4 +52,23 @@
   }
 }
 
+.playPauseItem {
+  width: 25vw;
+
+  &.disabled {
+    opacity: 0.4;
+  }
+
+  :global(.smart-grid-item__icon) {
+    width: 112rpx;
+    height: 112rpx !important;
+    border-radius: 56rpx;
+    background-color: #2B6EEB;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #f6f6f6;
+  }
+}
+
 
