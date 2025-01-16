@@ -24,7 +24,7 @@ const CleanRecords = () => {
   useEffect(() => {
     (dispatch as AppDispatch)(fetchCleanRecords());
     ty.setNavigationBarTitle({
-      title: Strings.getLang('dsc_clean_records'),
+      title: Strings.getLang(''),
     });
   }, []);
 

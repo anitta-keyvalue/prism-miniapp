@@ -45,7 +45,7 @@ const TopBar: FC & { Sub: typeof Sub } = () => {
       className={clsx(styles.topBar, isFull && 'hide')}
       style={{ marginTop: `${safeArea?.top ?? 48}px` }}
     >
-      <Text className={styles.title}>{devName}</Text>
+      <Text className={styles.title}>Robot test</Text>
     </View>
   );
 };

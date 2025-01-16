@@ -1,5 +1,5 @@
 import React, { FC } from 'react';
-import { Text } from '@ray-js/ray';
+import { Text, View } from '@ray-js/ray';
 import { Grid, GridItem } from '@ray-js/smart-ui';
 import { useProps } from '@ray-js/panel-sdk';
 import Strings from '@/i18n';
@@ -17,14 +17,14 @@ const Item: FC<{
     <GridItem useSlot>
       <Text
         style={{
-          fontSize: '40rpx',
-          fontWeight: '700',
+          fontSize: '50rpx',
+          fontWeight: '500',
           marginBottom: '16rpx',
         }}
       >
-        {value ?? dpValue}
+        {value ?? dpValue ?? 0}
       </Text>
-      <Text style={{ textAlign: 'center', fontSize: '24rpx', color: 'rgba(0, 0, 0, 0.5)' }}>
+      <Text style={{ textAlign: 'center', fontSize: '26rpx', color: 'rgba(153, 153, 153, 1)' }}>
         {Strings.getDpLang(dpCode)}({Strings.getDpLang(dpCode, 'unit')})
       </Text>
     </GridItem>
@@ -34,13 +34,16 @@ const Header = () => {
   const cleanTimesTotal = useSelector(selectCleanRecordsTotal);
 
   return (
-    <>
-      <Grid columnNum={3} border={false} customClass={styles.grid}>
-        <Item dpCode="clean_time_total" />
-        <Item dpCode="clean_area_total" />
-        <Item dpCode="clean_count_total" value={cleanTimesTotal} />
-      </Grid>
-    </>
+    <View className={styles.header}>
+      <Text className={styles.title}>{Strings.getLang('dsc_clean_records')}</Text>
+      <>
+        <Grid columnNum={3} border={false} customClass={styles.grid}>
+          <Item dpCode="clean_time_total" />
+          <Item dpCode="clean_area_total" />
+          <Item dpCode="clean_count_total" value={cleanTimesTotal} />
+        </Grid>
+      </>
+    </View>
   );
 };
 

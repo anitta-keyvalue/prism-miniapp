@@ -5,7 +5,7 @@ export const tuya = {
   window: {
     backgroundColor: '#f2f4f6',
     navigationBarTitleText: '',
-    navigationBarBackgroundColor: '#f2f4f6',
+    navigationBarBackgroundColor: '#ffffff',
     navigationBarTextStyle: 'black',
   },
   webviewRoot: 'webview',

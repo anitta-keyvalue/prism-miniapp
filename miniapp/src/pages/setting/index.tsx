@@ -7,6 +7,7 @@ import {
   statusCode,
   switchGoCode,
   voiceDataCode,
+  carpetCleanPreferCode,
 } from '@/constant/dpCodes';
 import { devices, support } from '@/devices';
 import Strings from '@/i18n';
@@ -19,6 +20,7 @@ import { Cell, CellGroup, Dialog, DialogInstance } from '@ray-js/smart-ui';
 import { useInterval } from 'ahooks';
 import React, { FC, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import SettingsCell from './settingsCell';
 
 const Setting: FC = () => {
   const dispatch = useDispatch();
@@ -84,9 +86,8 @@ const Setting: FC = () => {
   return (
     <>
       <CellGroup>
-        <Cell
+        <SettingsCell
           title={Strings.getLang('dsc_multi_map')}
-          isLink
           onClick={() => {
             router.push('/multiMap');
           }}
@@ -146,6 +147,16 @@ const Setting: FC = () => {
             isLink
             onClick={() => {
               router.push('/manual');
+            }}
+          />
+        )}
+
+        {support.isSupportDp(carpetCleanPreferCode) && (
+          <Cell
+            title={Strings.getLang('dsc_carpet_clean_preference')}
+            isLink
+            onClick={() => {
+              router.push('/carpetCleanPreference');
             }}
           />
         )}

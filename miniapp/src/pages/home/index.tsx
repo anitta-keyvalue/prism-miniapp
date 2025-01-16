@@ -1,9 +1,11 @@
+/* eslint-disable no-irregular-whitespace */
 import HomeTopBar from '@/components/HomeTopBar';
 import store from '@/redux';
 import { freezeMapUpdate, setLaserMapStateAndEdit } from '@/utils/openApi';
 import { View } from '@ray-js/ray';
 import { ENativeMapStatusEnum } from '@ray-js/robot-sdk-types';
 import React, { FC, useState } from 'react';
+import { useDpSchema, useProps } from '@ray-js/panel-sdk';
 
 import ControllerBar from './ControllerBar';
 import styles from './index.module.less';
@@ -31,6 +33,20 @@ const Home: FC = () => {
     setLaserMapStateAndEdit(mapId, { state: status, edit: edit || false });
     setMapStatus(status);
   };
+
+  //   export default () => {
+  //     // When the project starts, automatically pull the product schema information corresponding to the productId on the developer platform
+  //  const dpSchema = useDpSchema();
+
+  //  // Read dpState data from the device model
+  //     const dpState = useProps(state => state); // Get all dpState
+  //  const switch = useProps(state => state.switch); // Get values ​where dpCode is switch
+
+  //  console.log("dpSchema", dpSchema); // Print to view the contents of dpSchema
+  //     console.log("dpState", dpState); // Print to view the contents of dpState
+
+  //  return <View>hello world</View>;
+  //     };
 
   return (
     <View className={styles.container}>
