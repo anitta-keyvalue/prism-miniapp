@@ -47,23 +47,21 @@ const DoNotDisturb = () => {
             }}
           />
           <View className={styles.spaceLine} />
-          <View>
-            <CellGroup inset>
-              <Cell
-                className={styles.cellGroup}
-                title={Strings.getLang('dsc_do_not_disturb_start_time')}
-                label="start time"
-                isLink
-                onClick={() => setSPopVisible(true)}
-              />
-              <Cell
-                title={Strings.getLang('dsc_do_not_disturb_end_time')}
-                label="end time"
-                isLink
-                onClick={() => setEPopVisible(true)}
-              />
-            </CellGroup>
-          </View>
+          <CellGroup inset>
+            <Cell
+              className={styles.cellGroup}
+              title={Strings.getLang('dsc_do_not_disturb_start_time')}
+              label="start time"
+              isLink
+              onClick={() => setSPopVisible(true)}
+            />
+            <Cell
+              title={Strings.getLang('dsc_do_not_disturb_end_time')}
+              label="end time"
+              isLink
+              onClick={() => setEPopVisible(true)}
+            />
+          </CellGroup>
         </View>
         <Popup
           show={sPopVisible}

@@ -7,6 +7,7 @@ import {
   statusCode,
   switchGoCode,
   voiceDataCode,
+  carpetCleanPreferCode,
 } from '@/constant/dpCodes';
 import { devices, support } from '@/devices';
 import Strings from '@/i18n';
@@ -146,6 +147,16 @@ const Setting: FC = () => {
             isLink
             onClick={() => {
               router.push('/manual');
+            }}
+          />
+        )}
+
+        {support.isSupportDp(carpetCleanPreferCode) && (
+          <Cell
+            title={Strings.getLang('dsc_carpet_clean_preference')}
+            isLink
+            onClick={() => {
+              router.push('/carpetCleanPreference');
             }}
           />
         )}

@@ -71,4 +71,9 @@ export const routes: Routes = [
     path: '/pages/ipc/index',
     name: 'Ipc',
   },
+  {
+    route: '/carpetCleanPreference',
+    path: '/pages/carpetCleanPreference/index',
+    name: 'CarpetCleanPreference',
+  },
 ];
