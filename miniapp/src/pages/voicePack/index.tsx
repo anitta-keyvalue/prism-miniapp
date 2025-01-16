@@ -26,7 +26,7 @@ const VoicePack: FC = () => {
         deviceId: 'vdevo173631844770274',
       })
         .then((res) => {
-          console.log(res.schema);
+        console.log(res.schema);
         const schema = res.schema || [];
         const carpetCleanPrefer = schema.find(item => item.code === 'carpet_clean_prefer');
         const propertyValue = carpetCleanPrefer ? carpetCleanPrefer.property.range : null;
@@ -42,6 +42,7 @@ const VoicePack: FC = () => {
         offset: 0,
         limit: 100,
       });
+      console.log('Voice List:', res.datas);
       setVoices(res.datas);
     };
 

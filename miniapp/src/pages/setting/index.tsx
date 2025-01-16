@@ -19,6 +19,7 @@ import { Cell, CellGroup, Dialog, DialogInstance } from '@ray-js/smart-ui';
 import { useInterval } from 'ahooks';
 import React, { FC, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import SettingsCell from './settingsCell';
 
 const Setting: FC = () => {
   const dispatch = useDispatch();
@@ -84,9 +85,8 @@ const Setting: FC = () => {
   return (
     <>
       <CellGroup>
-        <Cell
+        <SettingsCell
           title={Strings.getLang('dsc_multi_map')}
-          isLink
           onClick={() => {
             router.push('/multiMap');
           }}

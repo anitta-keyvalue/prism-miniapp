@@ -1,8 +1,9 @@
 import Strings from '@/i18n';
-import { router } from '@ray-js/ray';
+import { Image, router } from '@ray-js/ray';
 import { GridItem, Icon } from '@ray-js/smart-ui';
 import React, { FC } from 'react';
 import styles from './index.module.less';
+import res from '@/res';
 
 const SettingButton: FC = () => {
   return (
@@ -13,7 +14,15 @@ const SettingButton: FC = () => {
       }}
       className={styles.cleanModeItem}
       slot={{
-        icon: <Icon classPrefix="iconfont" name="setting" size="22px" />,
+        icon: (
+          <Image
+            src={res.settings}
+            style={{
+              height: '64rpx',
+              width: '64rpx',
+            }}
+          />
+        ),
       }}
     />
   );
