@@ -5,7 +5,7 @@ export default {
     dsc_exit_manual_tips: 'Confirm exit from manual control mode?',
     dsc_cleaning_record_delete: 'Deleting...',
     dsc_manual: 'Manual Control',
-    dsc_ipc: 'Video Surveillance',
+    dsc_ipc: 'Camera',
     dsc_tips: 'Notice',
     dsc_robot_is_working_tips:
       'The robot vacuum is currently running. Do you want to stop the current task?',

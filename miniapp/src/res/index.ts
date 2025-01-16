@@ -16,6 +16,8 @@ import floorMaterial from './mapEdit.png';
 import floorMaterialDefault from './default.png';
 import floorMaterialCeramic from './ceramic.png';
 import floorMaterialWoodHorizontal from './wood.png';
+import settings from './settings.png';
+import rightArrow from './rightArrow.png';
 
 export default {
   inputClose,
@@ -36,4 +38,6 @@ export default {
   floorMaterialDefault,
   floorMaterialCeramic,
   floorMaterialWoodHorizontal,
+  settings,
+  rightArrow,
 };

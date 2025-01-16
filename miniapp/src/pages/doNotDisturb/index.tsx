@@ -15,13 +15,19 @@ const DoNotDisturb = () => {
   const [ePopVisible, setEPopVisible] = useState(false);
   const { disturbTimeSetData, setDisturbTimeSetData, updateDpValue } = useDisturbTime();
 
+  console.log('disturbTimeSetData', disturbTimeSetData);
+
   useEffect(() => {
     ty.setNavigationBarTitle({
       title: Strings.getLang('dsc_do_not_disturb'),
     });
+    updateDpValue({
+        ...disturbTimeSetData,
+        enable: false,
+      });
   }, []);
 
-  const { enable, startHour, startMinute, endHour, endMinute } = disturbTimeSetData;
+//   const { enable, startHour, startMinute, endHour, endMinute } = disturbTimeSetData;
 
   return (
     <View className={styles.pageBox}>
@@ -30,13 +36,13 @@ const DoNotDisturb = () => {
         <SwitchBox
           title={Strings.getLang('dsc_do_not_disturb')}
           label={Strings.getLang('dsc_disturb_time_set_tip')}
-          enable={enable}
+          enable={false}
           onSwitchChange={v => {
-            const data = {
-              ...disturbTimeSetData,
-              enable: !enable,
-            };
-            setDisturbTimeSetData(data);
+            // const data = {
+            //   ...disturbTimeSetData,
+            //   enable: !enable,
+            // };
+            // setDisturbTimeSetData(data);
           }}
         />
 
@@ -45,13 +51,13 @@ const DoNotDisturb = () => {
         <CellGroup inset>
           <Cell
             title={Strings.getLang('dsc_do_not_disturb_start_time')}
-            label={`${toFixedString(startHour, 2)}:${toFixedString(startMinute, 2)}`}
+            label={`start time`}
             isLink
             onClick={() => setSPopVisible(true)}
           />
           <Cell
             title={Strings.getLang('dsc_do_not_disturb_end_time')}
-            label={`${toFixedString(endHour, 2)}:${toFixedString(endMinute, 2)}`}
+            label={`end time`}
             isLink
             onClick={() => setEPopVisible(true)}
           />
@@ -67,7 +73,7 @@ const DoNotDisturb = () => {
       >
         <DateTimePicker
           type="time"
-          value={`${startHour}:${startMinute}`}
+          value={Date.now()}
           onCancel={() => {
             setSPopVisible(false);
           }}
@@ -94,7 +100,7 @@ const DoNotDisturb = () => {
       >
         <DateTimePicker
           type="time"
-          value={`${endHour}:${endMinute}`}
+          value={Date.now()}
           onCancel={() => {
             setEPopVisible(false);
           }}
