@@ -23,7 +23,7 @@ const SwitchBox = (props: Props) => {
         <Switch
           checked={props.enable}
           onChange={onSwitchChange}
-          activeColor={THEME_COLOR}
+          activeColor="#2B6EEB"
           size="middle"
           stopClickPropagation
         />

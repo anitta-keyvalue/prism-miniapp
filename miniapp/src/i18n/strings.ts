@@ -22,7 +22,7 @@ export default {
     dsc_split_room_fail: 'Room splitting failed',
     dsc_multi_map: 'Multi-map Management',
     dsc_clean_records: 'Cleaning record',
-    dsc_voice_pack: 'Voice Pack',
+    dsc_voice_pack: 'Volume',
     dsc_voice_pack_use: 'use',
     dsc_voice_pack_using: 'In use',
     dsc_submit_text: 'Submit',

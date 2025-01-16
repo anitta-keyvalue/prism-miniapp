@@ -20,6 +20,16 @@ const options = {
     throttle: 300,
   },
 };
+// Create SDM
+const value = new SmartDeviceModel({ deviceId: 'vdevo173631844770274' });
+value.init(); // Perform initialization
+
+// Initialization completion event
+value.onInitialized(() => {
+  // After initialization is completed, get the device information and operate the device
+  // For example, value.getDpSchema()
+  // ...
+});
 
 /**
  * SmartDevices 定义来自于 typings/sdm.d.ts，非 TypeScript 开发者可忽略

@@ -16,6 +16,8 @@ import floorMaterial from './mapEdit.png';
 import floorMaterialDefault from './default.png';
 import floorMaterialCeramic from './ceramic.png';
 import floorMaterialWoodHorizontal from './wood.png';
+import volumeMax from './volume-max.png';
+import volumeMin from './volume-x.png';
 
 export default {
   inputClose,
@@ -36,4 +38,6 @@ export default {
   floorMaterialDefault,
   floorMaterialCeramic,
   floorMaterialWoodHorizontal,
+  volumeMax,
+  volumeMin,
 };

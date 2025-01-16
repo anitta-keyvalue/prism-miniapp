@@ -1,5 +1,5 @@
 import React, { FC, useEffect, useState } from 'react';
-import { View, getDevInfo, getVoiceList, } from '@ray-js/ray';
+import { View, getDevInfo, getVoiceList } from '@ray-js/ray';
 import { useProps } from '@ray-js/panel-sdk';
 import { decodeVoice0x35 } from '@ray-js/robot-protocol';
 import { Toast } from '@ray-js/smart-ui';
@@ -16,7 +16,6 @@ const VoicePack: FC = () => {
 
   const deviceVoice = dpVoiceData ? decodeVoice0x35({ command: dpVoiceData }) : {};
 
-
   useEffect(() => {
     const fetchVoices = async () => {
       const res = await getVoiceList({
@@ -28,20 +27,11 @@ const VoicePack: FC = () => {
     };
 
     fetchVoices();
-
-    ty.setNavigationBarTitle({
-      title: Strings.getLang('dsc_voice_pack'),
-    });
   }, []);
 
   return (
     <View className={styles.container}>
       <Header />
-
-      {voices.map(voice => (
-        <Item key={voice.id} data={voice} deviceVoice={deviceVoice} />
-      ))}
-      <Toast id="smart-toast" />
     </View>
   );
 };
