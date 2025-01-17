@@ -20,6 +20,7 @@ import volumeMax from './volume-max.png';
 import volumeMin from './volume-x.png';
 import settings from './settings.png';
 import rightArrow from './rightArrow.png';
+import tick from './tick.png';
 
 export default {
   inputClose,
@@ -44,4 +45,5 @@ export default {
   volumeMin,
   settings,
   rightArrow,
+  tick,
 };

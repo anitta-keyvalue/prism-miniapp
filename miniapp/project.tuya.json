@@ -19,7 +19,7 @@
     "enableHtmlIframe": true
   },
   "baseversion": "2.19.2",
-  "projectname": "app",
+  "projectname": "miniapp",
   "compileType": "miniprogram",
   "webviewRoot": "webview",
   "remoteDebug": "mqtt",

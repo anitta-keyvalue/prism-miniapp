@@ -1,13 +1,11 @@
 /* eslint-disable @typescript-eslint/no-empty-function */
 /* eslint-disable dot-notation */
 import React, { FC, useEffect, useState } from 'react';
-import { View, getDevInfo, getVoiceList, device, Text } from '@ray-js/ray';
-import { decodeVoice0x35 } from '@ray-js/robot-protocol';
-import { Cell, CellGroup, Toast } from '@ray-js/smart-ui';
+import { View, device, Text, Image } from '@ray-js/ray';
 import { useDpSchema, useProps } from '@ray-js/panel-sdk';
 import Strings from '@/i18n';
-import { voiceDataCode } from '@/constant/dpCodes';
 import { useSendDp } from '@/hooks/useSendDp';
+import res from '@/res';
 
 import styles from './index.module.less';
 import SwitchBox from '../doNotDisturb/switchBox';
@@ -15,13 +13,12 @@ import SwitchBox from '../doNotDisturb/switchBox';
 const CarpetCleanPreference: FC = () => {
   const { getDeviceInfo } = device;
   const { sendDP } = useSendDp();
+
   const [currentPreference, setCurrentPreference] = useState<string>('');
+  const [currentAutoBoostValue, setAutoBoostValue] = useState<boolean>(false);
 
   const dpState = useProps(state => state);
-
-  //   console.log("dpSchema", dpSchema);
-  // eslint-disable-next-line dot-notation
-  console.log('dpState', dpState['carpet_clean_prefer']);
+  const dpSchema = useDpSchema();
 
   useEffect(() => {
     getDeviceInfo({
@@ -34,7 +31,8 @@ const CarpetCleanPreference: FC = () => {
         const propertyValue = carpetCleanPrefer ? carpetCleanPrefer.property.range : null;
         console.log('Property Value:', propertyValue);
         setCurrentPreference(dpState['carpet_clean_prefer']);
-        // sendDP('carpet_clean_prefer', 'evade');
+        setAutoBoostValue(dpState['auto_boost']);
+        sendDP('carpet_clean_prefer', 'evade');
       })
       .catch(error => {
         console.log(error);
@@ -47,33 +45,70 @@ const CarpetCleanPreference: FC = () => {
 
   return (
     <View className={styles.container}>
-      <View className={styles.header}>
-        <Text className={styles.title}>{Strings.getLang('dsc_carpet_clean_preference')}</Text>
-        <View className={styles.pageBox}>
-          <View className={styles.contentBox}>
-            <View className={styles.spaceLine} />
+      <Text className={styles.title}>{Strings.getLang('dsc_carpet_settings')}</Text>
+      <View className={styles.pageBox}>
+        <View className={styles.contentBox}>
+          <View className={styles.autoBoostWrapper}>
             <SwitchBox
               title={Strings.getLang('dsc_auto_boost')}
-              label={Strings.getLang('')}
-              enable={false}
-              onSwitchChange={v => {}}
+              label=""
+              enable={currentAutoBoostValue}
+              onSwitchChange={v => {
+                console.log('Auto Boost:', v.detail);
+                setAutoBoostValue(v.detail);
+                sendDP('auto_boost', v.detail);
+              }}
             />
-            <View className={styles.spaceLine} />
-            <CellGroup inset>
-              <Cell
-                className={styles.cellGroup}
-                title={Strings.getLang('dsc_carpet_clean_preference_1')}
-                label="start time"
-                isLink
-                onClick={() => {}}
+          </View>
+          <Text className={styles.heading}>{Strings.getLang('dsc_carpet_clean_preference')}</Text>
+          <View className={styles.preferenceWrapper}>
+            <View
+              className={styles.preference}
+              onClick={() => {
+                sendDP('carpet_clean_prefer', 'adaptive');
+              }}
+            >
+              <View className={styles.preferenceContent}>
+                <Text className={styles.heading}>
+                  {Strings.getLang('dsc_carpet_clean_preference_1')}
+                </Text>
+                <Text className={styles.description}>
+                  {Strings.getLang('dsc_carpet_clean_preference_1_desc')}
+                </Text>
+              </View>
+              <Image
+                src={res.tick}
+                className={`${styles.tick} ${currentPreference === 'adaptive' ? styles.show : ''}`}
+                style={{
+                  height: '16px',
+                  width: '16px',
+                }}
               />
-              <Cell
-                title={Strings.getLang('dsc_carpet_clean_preference_2')}
-                label="end time"
-                isLink
-                onClick={() => {}}
+            </View>
+            <View className={styles.divider} />
+            <View
+              className={styles.preference}
+              onClick={() => {
+                sendDP('carpet_clean_prefer', 'evade');
+              }}
+            >
+              <View className={styles.preferenceContent}>
+                <Text className={styles.heading}>
+                  {Strings.getLang('dsc_carpet_clean_preference_2')}
+                </Text>
+                <Text className={styles.description}>
+                  {Strings.getLang('dsc_carpet_clean_preference_2_desc')}
+                </Text>
+              </View>
+              <Image
+                src={res.tick}
+                className={`${styles.tick} ${currentPreference === 'evade' ? styles.show : ''}`}
+                style={{
+                  height: '16px',
+                  width: '16px',
+                }}
               />
-            </CellGroup>
+            </View>
           </View>
         </View>
       </View>
