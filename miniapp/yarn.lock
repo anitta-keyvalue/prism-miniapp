@@ -2549,6 +2549,11 @@
   resolved "https://registry.npmjs.org/@ray-js/webview-invoke/-/webview-invoke-0.0.3-beta-1.tgz"
   integrity sha512-Odn5BfMLsKhR2P9Z750uIaN6JvEw9v1xiHvJX/EyfX3z8K9n6ys6fWQSRVrp3TiUtuxJfz4G6HmuZViZ48Bqzg==
 
+"@ray-js/webview-invoke@0.0.3-beta-1":
+  version "0.0.3-beta-1"
+  resolved "https://registry.npmjs.org/@ray-js/webview-invoke/-/webview-invoke-0.0.3-beta-1.tgz"
+  integrity sha512-Odn5BfMLsKhR2P9Z750uIaN6JvEw9v1xiHvJX/EyfX3z8K9n6ys6fWQSRVrp3TiUtuxJfz4G6HmuZViZ48Bqzg==
+
 "@ray-js/wechat-assembly@^0.2.19":
   version "0.2.19"
   resolved "https://registry.npmjs.org/@ray-js/wechat-assembly/-/wechat-assembly-0.2.19.tgz"

@@ -16,6 +16,7 @@ import floorMaterial from './mapEdit.png';
 import floorMaterialDefault from './default.png';
 import floorMaterialCeramic from './ceramic.png';
 import floorMaterialWoodHorizontal from './wood.png';
+import playWhite from './iconPlayWhite.png';
 import volumeMax from './volume-max.png';
 import volumeMin from './volume-x.png';
 import settings from './settings.png';
@@ -41,6 +42,7 @@ export default {
   floorMaterialDefault,
   floorMaterialCeramic,
   floorMaterialWoodHorizontal,
+  playWhite,
   volumeMax,
   volumeMin,
   settings,
