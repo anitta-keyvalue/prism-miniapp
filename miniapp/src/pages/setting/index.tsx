@@ -150,16 +150,13 @@ const Setting: FC = () => {
             }}
           />
         )}
-
-        {support.isSupportDp(carpetCleanPreferCode) && (
-          <Cell
-            title={Strings.getLang('dsc_carpet_clean_preference')}
-            isLink
-            onClick={() => {
-              router.push('/carpetCleanPreference');
-            }}
-          />
-        )}
+        <Cell
+          title={Strings.getLang('dsc_cleaning_settings')}
+          isLink
+          onClick={() => {
+            router.push('/cleaningSettings');
+          }}
+        />
       </CellGroup>
       <Dialog id="smart-dialog" customClass="my-custom-class" />
     </>

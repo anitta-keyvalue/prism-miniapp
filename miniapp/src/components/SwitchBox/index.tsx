@@ -1,7 +1,7 @@
-import { THEME_COLOR } from '@/constant';
+import React from 'react';
 import { Text, View } from '@ray-js/ray';
 import { SmartEvent, Switch } from '@ray-js/smart-ui';
-import React from 'react';
+
 import styles from './index.module.less';
 
 interface Props {
@@ -17,9 +17,7 @@ const SwitchBox = (props: Props) => {
   return (
     <View className={styles.switchBox}>
       <View className={styles.head}>
-        <View className={styles.timeBox}>
-          <Text className={styles.headTitle}>{title}</Text>
-        </View>
+        <Text className={styles.title}>{title}</Text>
         <Switch
           checked={props.enable}
           onChange={onSwitchChange}
@@ -28,9 +26,7 @@ const SwitchBox = (props: Props) => {
           stopClickPropagation
         />
       </View>
-      <View className={styles.itemBottom}>
-        <Text className={styles.text}>{label}</Text>
-      </View>
+      <Text className={styles.description}>{label}</Text>
     </View>
   );
 };

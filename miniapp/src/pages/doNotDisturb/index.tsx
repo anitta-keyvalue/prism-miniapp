@@ -6,7 +6,7 @@ import { View, Text } from '@ray-js/ray';
 import { Button, Cell, CellGroup, DateTimePicker, Popup } from '@ray-js/smart-ui';
 import React, { useEffect, useState } from 'react';
 import styles from './index.module.less';
-import SwitchBox from './switchBox';
+import SwitchBox from '../../components/SwitchBox';
 
 const { toFixedString } = utils;
 const DoNotDisturb = () => {

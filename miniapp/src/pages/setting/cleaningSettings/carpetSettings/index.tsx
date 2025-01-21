@@ -6,9 +6,10 @@ import { useDpSchema, useProps } from '@ray-js/panel-sdk';
 import Strings from '@/i18n';
 import { useSendDp } from '@/hooks/useSendDp';
 import res from '@/res';
+import { carpetCleanPreferCode } from '@/constant/dpCodes';
 
 import styles from './index.module.less';
-import SwitchBox from '../doNotDisturb/switchBox';
+import SwitchBox from '../../../../components/SwitchBox';
 
 const CarpetCleanPreference: FC = () => {
   const { getDeviceInfo } = device;
@@ -27,20 +28,20 @@ const CarpetCleanPreference: FC = () => {
       .then(res => {
         console.log(res.schema);
         const schema = res.schema || [];
-        const carpetCleanPrefer = schema.find(item => item.code === 'carpet_clean_prefer');
+        const carpetCleanPrefer = schema.find(item => item.code === carpetCleanPreferCode);
         const propertyValue = carpetCleanPrefer ? carpetCleanPrefer.property.range : null;
         console.log('Property Value:', propertyValue);
-        setCurrentPreference(dpState['carpet_clean_prefer']);
+        setCurrentPreference(dpState[carpetCleanPreferCode]);
         setAutoBoostValue(dpState['auto_boost']);
-        sendDP('carpet_clean_prefer', 'evade');
+        sendDP(carpetCleanPreferCode, 'evade');
       })
       .catch(error => {
         console.log(error);
       });
 
-    ty.setNavigationBarTitle({
-      title: Strings.getLang(''),
-    });
+    // ty.setNavigationBarTitle({
+    //   title: Strings.getLang(''),
+    // });
   }, []);
 
   return (
@@ -65,7 +66,7 @@ const CarpetCleanPreference: FC = () => {
             <View
               className={styles.preference}
               onClick={() => {
-                sendDP('carpet_clean_prefer', 'adaptive');
+                sendDP(carpetCleanPreferCode, 'adaptive');
               }}
             >
               <View className={styles.preferenceContent}>
@@ -89,7 +90,7 @@ const CarpetCleanPreference: FC = () => {
             <View
               className={styles.preference}
               onClick={() => {
-                sendDP('carpet_clean_prefer', 'evade');
+                sendDP(carpetCleanPreferCode, 'evade');
               }}
             >
               <View className={styles.preferenceContent}>

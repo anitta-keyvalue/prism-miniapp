@@ -22,6 +22,7 @@ import volumeMin from './volume-x.png';
 import settings from './settings.png';
 import rightArrow from './rightArrow.png';
 import tick from './tick.png';
+import leftArrow from './leftArrow.png';
 
 export default {
   inputClose,
@@ -48,4 +49,5 @@ export default {
   settings,
   rightArrow,
   tick,
+  leftArrow,
 };
