@@ -67,7 +67,6 @@ const CarpetCleanPreference: FC = () => {
               className={styles.preference}
               onClick={() => {
                 sendDP(carpetCleanPreferCode, 'adaptive');
-                setCurrentPreference('adaptive');
               }}
             >
               <View className={styles.preferenceContent}>
@@ -92,7 +91,6 @@ const CarpetCleanPreference: FC = () => {
               className={styles.preference}
               onClick={() => {
                 sendDP(carpetCleanPreferCode, 'evade');
-                setCurrentPreference('evade');
               }}
             >
               <View className={styles.preferenceContent}>
