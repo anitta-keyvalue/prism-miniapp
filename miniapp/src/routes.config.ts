@@ -72,8 +72,18 @@ export const routes: Routes = [
     name: 'Ipc',
   },
   {
-    route: '/carpetCleanPreference',
-    path: '/pages/carpetCleanPreference/index',
-    name: 'CarpetCleanPreference',
+    route: '/cleaningSettings',
+    path: '/pages/setting/cleaningSettings/index',
+    name: 'CleaningSettings',
+  },
+  {
+    route: '/carpetSettings',
+    path: '/pages/setting/cleaningSettings/carpetSettings/index',
+    name: 'CarpetSettings',
+  },
+  {
+    route: '/mopSettings',
+    path: '/pages/setting/cleaningSettings/mopSettings/index',
+    name: 'MopSettings',
   },
 ];
