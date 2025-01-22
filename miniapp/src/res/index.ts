@@ -21,6 +21,9 @@ import volumeMax from './volume-max.png';
 import volumeMin from './volume-x.png';
 import settings from './settings.png';
 import rightArrow from './rightArrow.png';
+import clock from './icon_clock.png';
+import battery from './icon_battery.png';
+import cleanArea from './icon_clean_area.png';
 
 export default {
   inputClose,
@@ -46,4 +49,7 @@ export default {
   volumeMin,
   settings,
   rightArrow,
+  clock,
+  battery,
+  cleanArea,
 };

@@ -3,9 +3,8 @@
 .container {
   display: flex;
   align-items: center;
-  position: relative;
+  padding: 0 48rpx;
   width: 100vw;
-  padding: 0 40rpx;
   z-index: 9;
 }
 
@@ -17,4 +16,40 @@
   color: #000000;
 
   .ellipsis(520rpx);
+}
+
+.row{
+  width: 100%;
+  display: flex;         
+  justify-content: space-between;
+  align-items: center;    
+  padding: 10px;          
+}
+.item {
+  //flex: 1; 
+  display: flex;                      
+  gap: 4rpx;    
+}
+
+.itemMainText{
+  font-size: 72rpx;
+}
+
+.itemSubText{
+  font-size: 28rpx;
+  color: #999999;
+}
+
+.subTextLayout{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 4rpx;
+}
+
+.iconBackGround {
+  width: 24rpx; 
+  height: 24rpx;  
+  background-position: center;
+  background-repeat: no-repeat;
 }
