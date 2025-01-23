@@ -12,14 +12,8 @@ const SettingsCell: FC<Props> = ({ onClick, title }) => {
   return (
     <>
       <View className={styles.settingsCell} onClick={onClick}>
-        <Text style={{ color: 'black', fontSize: '16px', fontWeight: '400' }}>{title}</Text>
-        <Image
-          src={res.rightArrow}
-          style={{
-            height: '24rpx',
-            width: '20rpx',
-          }}
-        />
+        <Text className={styles.text}>{title}</Text>
+        <Image src={res.rightArrow} className={styles.arrow} />
       </View>
       <View className={styles.divider} />
     </>
