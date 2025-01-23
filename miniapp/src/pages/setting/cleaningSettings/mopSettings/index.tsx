@@ -1,12 +1,12 @@
 import React, { FC, useState } from 'react';
-import { View, Text, Image } from 'ray';
+import { View, Text } from 'ray';
 
 import Strings from '@/i18n';
 import { useSendDp } from '@/hooks/useSendDp';
 import { autoHyperArmMoppingCode, mopExtendFrequencyCode } from '@/constant/dpCodes';
-import res from '@/res';
 import SwitchBox from '@/components/SwitchBox/switchBox';
 
+import SettingsOption from '../../settingsOption';
 import styles from './index.module.less';
 
 const MopSettings: FC = () => {
@@ -28,15 +28,13 @@ const MopSettings: FC = () => {
             sendDP(autoHyperArmMoppingCode, v.detail);
           }}
         />
-        <View className={styles.cycleFrequencyWrapper}>
-          <Text className={styles.label}>{Strings.getLang('dsc_mop_cycle_frequency')}</Text>
-          <View className={styles.rightSection}>
-            <Text className={styles.frequencyText}>{`${currentMopCycleFrequency} time${
-              currentMopCycleFrequency === '1' ? '' : 's'
-            }`}</Text>
-            <Image src={res.rightArrow} className={styles.arrow} />
-          </View>
-        </View>
+        <SettingsOption
+          label={Strings.getLang('dsc_mop_cycle_frequency')}
+          onClick={() => null}
+          rightSectionText={`${currentMopCycleFrequency} time${
+            currentMopCycleFrequency === '1' ? '' : 's'
+          }`}
+        />
       </View>
       {/* <BottomSheet isOpen={false} onClose={() => null}>
         <Text>{Strings.getLang('dsc_mop_cycle_frequency')}</Text>
