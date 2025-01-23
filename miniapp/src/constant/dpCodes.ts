@@ -44,3 +44,5 @@ export const deviceInfoCode = 'device_info';
 export const switchLedCode = 'switch_led';
 export const workstationTypeCode = 'workstation_type';
 export const BasicPrivateCode = 'basic_private';
+export const mopExtendFrequencyCode = 'mop_stretch_freq';
+export const autoHyperArmMoppingCode = 'auto_motor_stretch';

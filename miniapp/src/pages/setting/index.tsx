@@ -126,7 +126,6 @@ const Setting: FC = () => {
             router.push('/cleanRecords');
           }}
         />
-
         {support.isSupportDp(voiceDataCode) && (
           <SettingsCell
             title={Strings.getLang('dsc_voice_pack')}
