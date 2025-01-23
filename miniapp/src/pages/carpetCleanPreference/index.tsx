@@ -2,15 +2,16 @@
 /* eslint-disable dot-notation */
 import React, { FC, useEffect, useState } from 'react';
 import { View, device, Text, Image } from '@ray-js/ray';
-import { useDpSchema, useProps } from '@ray-js/panel-sdk';
+import { useProps } from '@ray-js/panel-sdk';
 import Strings from '@/i18n';
 import { useSendDp } from '@/hooks/useSendDp';
 import res from '@/res';
+import SwitchBox from '@/components/SwitchBox/switchBox';
+import { carpetCleanPreferCode } from '@/constant/dpCodes';
 
 import styles from './index.module.less';
-import SwitchBox from '../doNotDisturb/switchBox';
 
-const CarpetCleanPreference: FC = () => {
+const CarpetSettings: FC = () => {
   const { getDeviceInfo } = device;
   const { sendDP } = useSendDp();
 
@@ -18,7 +19,6 @@ const CarpetCleanPreference: FC = () => {
   const [currentAutoBoostValue, setAutoBoostValue] = useState<boolean>(false);
 
   const dpState = useProps(state => state);
-  const dpSchema = useDpSchema();
 
   useEffect(() => {
     getDeviceInfo({
@@ -46,76 +46,65 @@ const CarpetCleanPreference: FC = () => {
   return (
     <View className={styles.container}>
       <Text className={styles.title}>{Strings.getLang('dsc_carpet_settings')}</Text>
-      <View className={styles.pageBox}>
-        <View className={styles.contentBox}>
-          <View className={styles.autoBoostWrapper}>
-            <SwitchBox
-              title={Strings.getLang('dsc_auto_boost')}
-              label=""
-              enable={currentAutoBoostValue}
-              onSwitchChange={v => {
-                console.log('Auto Boost:', v.detail);
-                setAutoBoostValue(v.detail);
-                sendDP('auto_boost', v.detail);
-              }}
+      <>
+        <View className={styles.autoBoostWrapper}>
+          <SwitchBox
+            title={Strings.getLang('dsc_auto_boost')}
+            label=""
+            enable={currentAutoBoostValue}
+            onSwitchChange={v => {
+              setAutoBoostValue(v.detail);
+              sendDP('auto_boost', v.detail);
+            }}
+          />
+        </View>
+        <Text className={styles.heading}>{Strings.getLang('dsc_carpet_clean_preference')}</Text>
+        <View className={styles.preferenceWrapper}>
+          <View
+            className={styles.preference}
+            onClick={() => {
+              sendDP(carpetCleanPreferCode, 'adaptive');
+              setCurrentPreference('adaptive');
+            }}
+          >
+            <View className={styles.preferenceContent}>
+              <Text className={styles.heading}>
+                {Strings.getLang('dsc_carpet_clean_preference_1')}
+              </Text>
+              <Text className={styles.description}>
+                {Strings.getLang('dsc_carpet_clean_preference_1_desc')}
+              </Text>
+            </View>
+            <Image
+              src={res.tick}
+              className={`${styles.tick} ${currentPreference === 'adaptive' ? styles.show : ''}`}
             />
           </View>
-          <Text className={styles.heading}>{Strings.getLang('dsc_carpet_clean_preference')}</Text>
-          <View className={styles.preferenceWrapper}>
-            <View
-              className={styles.preference}
-              onClick={() => {
-                sendDP('carpet_clean_prefer', 'adaptive');
-                setCurrentPreference('adaptive');
-              }}
-            >
-              <View className={styles.preferenceContent}>
-                <Text className={styles.heading}>
-                  {Strings.getLang('dsc_carpet_clean_preference_1')}
-                </Text>
-                <Text className={styles.description}>
-                  {Strings.getLang('dsc_carpet_clean_preference_1_desc')}
-                </Text>
-              </View>
-              <Image
-                src={res.tick}
-                className={`${styles.tick} ${currentPreference === 'adaptive' ? styles.show : ''}`}
-                style={{
-                  height: '16px',
-                  width: '16px',
-                }}
-              />
+          <View className={styles.divider} />
+          <View
+            className={styles.preference}
+            onClick={() => {
+              sendDP(carpetCleanPreferCode, 'evade');
+              setCurrentPreference('evade');
+            }}
+          >
+            <View className={styles.preferenceContent}>
+              <Text className={styles.heading}>
+                {Strings.getLang('dsc_carpet_clean_preference_2')}
+              </Text>
+              <Text className={styles.description}>
+                {Strings.getLang('dsc_carpet_clean_preference_2_desc')}
+              </Text>
             </View>
-            <View className={styles.divider} />
-            <View
-              className={styles.preference}
-              onClick={() => {
-                sendDP('carpet_clean_prefer', 'evade');
-                setCurrentPreference('evade');
-              }}
-            >
-              <View className={styles.preferenceContent}>
-                <Text className={styles.heading}>
-                  {Strings.getLang('dsc_carpet_clean_preference_2')}
-                </Text>
-                <Text className={styles.description}>
-                  {Strings.getLang('dsc_carpet_clean_preference_2_desc')}
-                </Text>
-              </View>
-              <Image
-                src={res.tick}
-                className={`${styles.tick} ${currentPreference === 'evade' ? styles.show : ''}`}
-                style={{
-                  height: '16px',
-                  width: '16px',
-                }}
-              />
-            </View>
+            <Image
+              src={res.tick}
+              className={`${styles.tick} ${currentPreference === 'evade' ? styles.show : ''}`}
+            />
           </View>
         </View>
-      </View>
+      </>
     </View>
   );
 };
 
-export default CarpetCleanPreference;
+export default CarpetSettings;
