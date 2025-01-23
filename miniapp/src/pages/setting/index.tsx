@@ -15,12 +15,13 @@ import { selectMapStateByKey } from '@/redux/modules/mapStateSlice';
 import { fetchMultiMaps } from '@/redux/modules/multiMapsSlice';
 import { robotIsNotWorking } from '@/utils/robotStatus';
 import { useActions } from '@ray-js/panel-sdk';
-import { router } from '@ray-js/ray';
+import { router, View, Text } from '@ray-js/ray';
 import { Cell, CellGroup, Dialog, DialogInstance } from '@ray-js/smart-ui';
 import { useInterval } from 'ahooks';
 import React, { FC, useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import SettingsCell from './settingsCell';
+import styles from './index.module.less';
 
 const Setting: FC = () => {
   const dispatch = useDispatch();
@@ -29,10 +30,6 @@ const Setting: FC = () => {
 
   useEffect(() => {
     dispatch(fetchMultiMaps());
-
-    ty.setNavigationBarTitle({
-      title: Strings.getLang('dsc_settings'),
-    });
   }, []);
 
   const handleNavToMapEdit = async () => {
@@ -84,7 +81,8 @@ const Setting: FC = () => {
   );
 
   return (
-    <>
+    <View className={styles.container}>
+      <Text className={styles.heading}>{Strings.getLang('dsc_device_settings')}</Text>
       <CellGroup>
         <SettingsCell
           title={Strings.getLang('dsc_multi_map')}
@@ -93,76 +91,67 @@ const Setting: FC = () => {
           }}
         />
         {isEmptyMap === false && (
-          <Cell title={Strings.getLang('dsc_map_edit')} isLink onClick={handleNavToMapEdit} />
+          <SettingsCell title={Strings.getLang('dsc_map_edit')} onClick={handleNavToMapEdit} />
         )}
         {support.isSupportDp(mapResetCode) && (
-          <Cell title={Strings.getLang('dsc_reset_map')} isLink onClick={handleResetMap} />
+          <SettingsCell title={Strings.getLang('dsc_reset_map')} onClick={handleResetMap} />
         )}
         {!isEmptyMap && (
-          <Cell
+          <SettingsCell
             title={Strings.getLang('dsc_preference')}
-            isLink
             onClick={() => {
               router.push('/cleanPreference');
             }}
           />
         )}
         {support.isSupportDp(deviceTimerCode) && (
-          <Cell
+          <SettingsCell
             title={Strings.getLang('dsc_timer_title')}
-            isLink
             onClick={() => {
               router.push('/timing');
             }}
           />
         )}
         {support.isSupportDp(disturbTimeSetCode) && (
-          <Cell
+          <SettingsCell
             title={Strings.getLang('dsc_do_not_disturb')}
-            isLink
             onClick={() => {
               router.push('/doNotDisturb');
             }}
           />
         )}
-        <Cell
+        <SettingsCell
           title={Strings.getLang('dsc_clean_records')}
-          isLink
           onClick={() => {
             router.push('/cleanRecords');
           }}
         />
+
         {support.isSupportDp(voiceDataCode) && (
-          <Cell
+          <SettingsCell
             title={Strings.getLang('dsc_voice_pack')}
-            isLink
             onClick={() => {
               router.push('/voicePack');
             }}
           />
         )}
         {support.isSupportDp(directionControlCode) && (
-          <Cell
+          <SettingsCell
             title={Strings.getLang('dsc_manual')}
-            isLink
             onClick={() => {
               router.push('/manual');
             }}
           />
         )}
-
-        {support.isSupportDp(carpetCleanPreferCode) && (
-          <Cell
-            title={Strings.getLang('dsc_carpet_clean_preference')}
-            isLink
-            onClick={() => {
-              router.push('/carpetCleanPreference');
-            }}
-          />
-        )}
+        <SettingsCell
+          title={Strings.getLang('dsc_cleaning_settings')}
+          onClick={() => {
+            router.push('/cleaningSettings');
+          }}
+        />
       </CellGroup>
       <Dialog id="smart-dialog" customClass="my-custom-class" />
-    </>
+    </View>
   );
 };
 
