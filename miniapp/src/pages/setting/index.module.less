@@ -3,29 +3,64 @@
     width: 100vw;
     height: 100vh;
     padding: 0 40rpx;
+
+    .heading {
+        color: 'black';
+        font-size: 40rpx;
+        padding: 48rpx 0;
+    }
+
+
+    .settingsCell {
+        justify-content: space-between;
+        background-color: white;
+        padding: 32rpx 0;
+        display: flex;
+
+        .text {
+            color: 'black';
+            font-size: 32rpx;
+        }
+
+        .arrow {
+            height: 40rpx;
+            width: 40rpx;
+            margin-right: 16rpx;
+        }
+    }
+
+    .divider {
+        height: 1px;
+        background-color: #EEEEEE;
+    }
 }
 
-.settingsCell{
-    justify-content: space-between;
-    background-color: white;
-    padding: 32rpx 0;
+.optionWrapper {
     display: flex;
-}
-.divider{
-    height: 1px;
-    background-color: #EEEEEE;
-}
-.heading{
-    color: 'black';
-    font-size: 40rpx;
-    padding: 48rpx 0;
-}
-.text{
-    color: 'black';
-    font-size: 32rpx;
-}
-.arrow{
-    height: 40rpx;
-    width: 40rpx;
-    margin-right: 16rpx;
+    justify-content: space-between;
+    align-items: center;
+    padding: 24rpx 32rpx;
+    border: 1px solid #EEEEEE;
+    border-radius: 16rpx;
+    background-color: #FAFAFA;
+
+    .optionLabel {
+        font-size: 32rpx;
+    }
+
+    .rightSection {
+        display: flex;
+        align-items: center;
+        gap: 16rpx;
+
+        .rightSectionText {
+            font-size: 24rpx;
+            color: #999999;
+        }
+
+        .arrow {
+            width: 40rpx;
+            height: 40rpx;
+        }
+    }
 }
