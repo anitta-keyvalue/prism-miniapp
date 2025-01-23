@@ -1,4 +1,4 @@
 export default {
-  navigationBarTitleText: 'Home',
-  disableScroll: true,
+  navigationBarTitleText: "Home",
+  disableScroll: true
 };
