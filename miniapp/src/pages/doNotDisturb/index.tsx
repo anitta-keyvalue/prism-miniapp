@@ -1,12 +1,13 @@
-import { THEME_COLOR } from '@/constant';
+import React, { useEffect, useState } from 'react';
+
 import { useDisturbTime } from '@/hooks/useDisturbTime';
 import Strings from '@/i18n';
 import { utils } from '@ray-js/panel-sdk';
 import { View, Text } from '@ray-js/ray';
 import { Button, Cell, CellGroup, DateTimePicker, Popup } from '@ray-js/smart-ui';
-import React, { useEffect, useState } from 'react';
+import SwitchBox from '@/components/SwitchBox/switchBox';
+
 import styles from './index.module.less';
-import SwitchBox from '../../components/SwitchBox';
 
 const { toFixedString } = utils;
 const DoNotDisturb = () => {
