@@ -23,6 +23,10 @@ import settings from './settings.png';
 import rightArrow from './rightArrow.png';
 import tick from './tick.png';
 import leftArrow from './leftArrow.png';
+import custom from './icon_custom.png';
+import area from './icon_area.png';
+import auto from './icon_auto.png';
+import room from './icon_room.png';
 
 export default {
   inputClose,
@@ -50,4 +54,8 @@ export default {
   rightArrow,
   tick,
   leftArrow,
+  area,
+  room,
+  auto,
+  custom,
 };

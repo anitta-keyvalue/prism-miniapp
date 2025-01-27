@@ -1,6 +1,7 @@
-import { Button, Text, Image } from '@ray-js/ray';
+import { View, Text, Image } from '@ray-js/ray';
 import React, { FC } from 'react';
 import res from '@/res';
+import styles from './index.module.less';
 
 type Props = {
   onClick: () => void;
@@ -9,24 +10,13 @@ type Props = {
 
 const SettingsCell: FC<Props> = ({ onClick, title }) => {
   return (
-    <Button
-      style={{
-        flexDirection: 'row',
-        justifyContent: 'space-between',
-        backgroundColor: 'white',
-        padding: '16px 24',
-      }}
-      onClick={onClick}
-    >
-      <Text style={{ color: 'black', fontSize: '16px', fontWeight: '400' }}>{title}</Text>
-      <Image
-        src={res.rightArrow}
-        style={{
-          height: '16px',
-          width: '16px',
-        }}
-      />
-    </Button>
+    <>
+      <View className={styles.settingsCell} onClick={onClick}>
+        <Text className={styles.text}>{title}</Text>
+        <Image src={res.rightArrow} className={styles.arrow} />
+      </View>
+      <View className={styles.divider} />
+    </>
   );
 };
 

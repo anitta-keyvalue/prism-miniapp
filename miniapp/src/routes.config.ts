@@ -78,12 +78,12 @@ export const routes: Routes = [
   },
   {
     route: '/carpetSettings',
-    path: '/pages/carpetSettings/index',
+    path: '/pages/setting/cleaningSettings/carpetSettings/index',
     name: 'CarpetSettings',
   },
   {
     route: '/mopSettings',
-    path: '/pages/mopSettings/index',
+    path: '/pages/setting/cleaningSettings/mopSettings/index',
     name: 'MopSettings',
   },
 ];
