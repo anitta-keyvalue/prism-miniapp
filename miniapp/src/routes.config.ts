@@ -77,11 +77,6 @@ export const routes: Routes = [
     name: 'CleaningSettings',
   },
   {
-    route: '/carpetSettings',
-    path: '/pages/setting/cleaningSettings/carpetSettings/index',
-    name: 'CarpetSettings',
-  },
-  {
     route: '/mopSettings',
     path: '/pages/setting/cleaningSettings/mopSettings/index',
     name: 'MopSettings',

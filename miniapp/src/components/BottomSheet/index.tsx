@@ -13,9 +13,12 @@ interface Props {
 
 const BottomSheet: FC<Props> = ({ children, isOpen, onClose }) => {
   return (
-    <View className={`${styles.container} ${isOpen ? styles.open : styles.closed}`}>
-      <Image src={res.leftArrow} className={styles.backButton} onClick={onClose} />
-      {children}
+    <View className={styles.bottomSheetContainer}>
+      <View className={styles.background} />
+      <View className={`${styles.sheetWrapper} ${isOpen ? styles.open : styles.closed}`}>
+        <Image src={res.leftArrow} className={styles.backButton} onClick={onClose} />
+        {children}
+      </View>
     </View>
   );
 };

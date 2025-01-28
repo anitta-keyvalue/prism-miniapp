@@ -38,13 +38,13 @@ const CarpetSettings: FC = () => {
         console.log(error);
       });
 
-    ty.setNavigationBarTitle({
-      title: Strings.getLang(''),
-    });
+    // ty.setNavigationBarTitle({
+    //   title: Strings.getLang(''),
+    // });
   }, []);
 
   return (
-    <View className={styles.container}>
+    <View className={styles.carpetSettingsContainer}>
       <Text className={styles.title}>{Strings.getLang('dsc_carpet_settings')}</Text>
       <>
         <View className={styles.autoBoostWrapper}>
