@@ -33,7 +33,6 @@ const CarpetCleanPreference: FC = () => {
       .catch(error => {
         console.log(error);
       });
-
   }, []);
 
   return (

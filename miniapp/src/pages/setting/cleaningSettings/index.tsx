@@ -1,20 +1,24 @@
-import React, { FC } from 'react';
+import React, { FC, useState } from 'react';
 import { router, Text, View } from '@ray-js/ray';
 
 import { support } from '@/devices';
 import { carpetCleanPreferCode, mopExtendFrequencyCode } from '@/constant/dpCodes';
 import Strings from '@/i18n';
+import BottomSheet from '@/components/BottomSheet';
 
 import SettingsOption from '../settingsOption';
 import styles from './index.module.less';
+import CarpetSettings from './carpetSettings';
 
 const CleaningSettings: FC = () => {
+  const [isCarpetSettingsOpen, setIsCarpetSettingsOpen] = useState(false);
+
   const options = [
     {
       dpCode: carpetCleanPreferCode,
       title: Strings.getLang('dsc_carpet_settings'),
       onClick: () => {
-        router.push('/carpetSettings');
+        setIsCarpetSettingsOpen(true);
       },
     },
     {
@@ -40,6 +44,9 @@ const CleaningSettings: FC = () => {
           </>
         ))}
       </View>
+      <BottomSheet isOpen={isCarpetSettingsOpen} onClose={() => setIsCarpetSettingsOpen(false)}>
+        <CarpetSettings />
+      </BottomSheet>
     </View>
   );
 };

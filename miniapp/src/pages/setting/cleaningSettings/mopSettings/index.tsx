@@ -1,9 +1,14 @@
-import React, { FC, useState,useEffect } from 'react';
+import React, { FC, useState, useEffect } from 'react';
 import { View, device, Text } from '@ray-js/ray';
 import Strings from '@/i18n';
 import SwitchBox from '@/components/SwitchBox/switchBox';
 import { useSendDp } from '@/hooks/useSendDp';
-import { autoHyperArmMoppingCode, autoHyperArmValue, mopCycleFrequency, mopExtendFrequencyCode } from '@/constant/dpCodes';
+import {
+  autoHyperArmMoppingCode,
+  autoHyperArmValue,
+  mopCycleFrequency,
+  mopExtendFrequencyCode,
+} from '@/constant/dpCodes';
 import { useProps } from '@ray-js/panel-sdk';
 
 const MopSettings: FC = () => {
@@ -20,13 +25,12 @@ const MopSettings: FC = () => {
       deviceId: 'vdevo173631844770274',
     })
       .then(res => {
-       setAutoHyperArmValue(dpState[autoHyperArmValue]);
+        setAutoHyperArmValue(dpState[autoHyperArmValue]);
         setMopCycleFrequency(dpState[mopExtendFrequencyCode]);
       })
       .catch(error => {
         console.log(error);
       });
-
   }, []);
 
   return (
