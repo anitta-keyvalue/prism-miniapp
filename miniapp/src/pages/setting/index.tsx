@@ -142,12 +142,12 @@ const Setting: FC = () => {
             }}
           />
         )}
-        <SettingsCell
+        {/* <SettingsCell
           title={Strings.getLang('dsc_cleaning_settings')}
           onClick={() => {
             router.push('/cleaningSettings');
           }}
-        />
+        /> */}
       </CellGroup>
       <Dialog id="smart-dialog" customClass="my-custom-class" />
     </View>
