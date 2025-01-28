@@ -12,6 +12,8 @@ import React, { FC, useMemo } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
 import { emitter } from '@/utils';
+import res from '@/res';
+import { Image } from '@ray-js/ray';
 import styles from './index.module.less';
 
 type Props = {
@@ -69,39 +71,47 @@ const ModeChange: FC<Props> = ({ modeState, setMapStatus, setModeState }) => {
     return [
       // 全屋清扫
       {
+        text: 'Auto',
         mode: 'smart',
         mapStatus: ENativeMapStatusEnum.normal,
         disabled: false,
+        icon: res.auto,
       },
       // 选区清扫
       {
+        text: 'Room',
         mode: 'select_room',
         mapStatus: ENativeMapStatusEnum.mapClick,
         disabled: isEmptyMap !== false || roomNum === 0,
+        icon: res.room,
       },
       // 指哪扫哪
       {
+        text: 'Area',
         mode: 'pose',
         mapStatus: ENativeMapStatusEnum.pressToRun,
         disabled: isEmptyMap !== false,
+        icon: res.area,
       },
       // 划区清扫
       {
+        text: 'Custom',
         mode: 'zone',
         mapStatus: ENativeMapStatusEnum.areaSet,
         disabled: isEmptyMap !== false,
+        icon: res.custom,
       },
     ] as const;
   }, [isEmptyMap, roomNum]);
 
   return (
     <Grid customClass={styles.full} border={false}>
-      {modes.map(({ mode, disabled, mapStatus }) => {
+      {modes.map(({ text, mode, disabled, mapStatus, icon }) => {
         const isActive = mode === modeState;
         return (
           <GridItem
             key={mode}
-            text={Strings.getDpLang(modeCode, mode)}
+            text={text}
             onClick={() => {
               if (disabled) return;
               setModeState(mode);
@@ -114,11 +124,9 @@ const ModeChange: FC<Props> = ({ modeState, setMapStatus, setModeState }) => {
             )}
             slot={{
               icon: (
-                <Icon
-                  classPrefix="iconfont"
-                  name={mode}
-                  size="22px"
-                  color={isActive ? '#fff' : '#000'}
+                <Image
+                  src={icon}
+                  style={{ width: '44rpx', height: '44rpx', color: isActive ? '#D5EAFF' : '#000' }}
                 />
               ),
             }}

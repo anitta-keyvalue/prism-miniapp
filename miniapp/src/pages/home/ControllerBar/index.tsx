@@ -172,17 +172,6 @@ const ControllerBar: FC<Props> = ({ mapStatus, setMapStatus }) => {
     <CoverView className={styles.controllerBarContainer}>
       {/* 清扫按钮、清洁偏好、回充、快速建图 */}
       <View className={styles.operationContainer}>
-        <View
-          style={{
-            background: '#FA8C16',
-            width: '100vw',
-            padding: '8rpx 16rpx',
-          }}
-        >
-          <Text style={{ color: '#fff', fontSize: '12px' }}>
-            {Strings.getLang('dsc_home_p2p_tips')}
-          </Text>
-        </View>
         {/* 快速建图: 无地图且不处于快速建图状态中时显示快速建图按钮 */}
         <QuickMapButton />
 

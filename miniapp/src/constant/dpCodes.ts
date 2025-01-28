@@ -49,3 +49,5 @@ export const autoHyperArmMoppingCode = 'auto_motor_stretch';
 export const aiDetection = 'ai_detection';
 export const aiObstacleAvoidance = 'ai_obstacle_avoidance';
 export const aiCleaning = 'ai_agent_clean';
+export const mopCycleFrequency = 'self_clean_frequency';
+export const autoHyperArmValue = 'auto_motor_stretch';
