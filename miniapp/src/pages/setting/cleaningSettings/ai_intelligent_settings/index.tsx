@@ -3,13 +3,11 @@
 import React, { FC, useEffect, useState } from 'react';
 import { View, device, Text } from '@ray-js/ray';
 import { useProps } from '@ray-js/panel-sdk';
-import Strings from '@/i18n';
 import { useSendDp } from '@/hooks/useSendDp';
-import res from '@/res';
 import { aiDetection, aiObstacleAvoidance, aiCleaning } from '@/constant/dpCodes';
-
+import SwitchBox from '@/components/SwitchBox/switchBox';
+import Strings from '@/i18n';
 import styles from './index.module.less';
-import SwitchBox from '../../../../components/SwitchBox';
 
 const CarpetCleanPreference: FC = () => {
   const { getDeviceInfo } = device;
