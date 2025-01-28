@@ -3,7 +3,7 @@ import { View, device, Text } from '@ray-js/ray';
 import Strings from '@/i18n';
 import SwitchBox from '@/components/SwitchBox/switchBox';
 import { useSendDp } from '@/hooks/useSendDp';
-import { autoHyperArmMoppingCode, autoHyperArmValue, mopCycleFrequency } from '@/constant/dpCodes';
+import { autoHyperArmMoppingCode, autoHyperArmValue, mopCycleFrequency, mopExtendFrequencyCode } from '@/constant/dpCodes';
 import { useProps } from '@ray-js/panel-sdk';
 
 const MopSettings: FC = () => {
@@ -21,7 +21,7 @@ const MopSettings: FC = () => {
     })
       .then(res => {
        setAutoHyperArmValue(dpState[autoHyperArmValue]);
-        setMopCycleFrequency(dpState[mopCycleFrequency]);
+        setMopCycleFrequency(dpState[mopExtendFrequencyCode]);
       })
       .catch(error => {
         console.log(error);
@@ -46,7 +46,7 @@ const MopSettings: FC = () => {
           <Text>{Strings.getLang('dsc_mop_cycle_frequency')}</Text>
           <View>
             <Text>{`${currentMopCycleFrequency} time${
-              currentMopCycleFrequency === '1' ? '' : 's'
+              currentMopCycleFrequency === 1 ? '' : 's'
             }`}</Text>
             right arrow
           </View>
